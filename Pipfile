@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+falcon = "*"
+gunicorn = "*"
+
+[dev-packages]
+"flake8" = "*"
+black = "==18.9b0"
+
+[requires]
+python_version = "3.7"
+
+[scripts]
+format = "black --py36 src"
+format_check = "black --py36 --check src"
+lint = "flake8 src"
+start_dev = "gunicorn src.main:app --bind=0.0.0.0 --reload"
